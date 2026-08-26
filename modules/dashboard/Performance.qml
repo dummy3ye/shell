@@ -18,9 +18,9 @@ Item {
         id: placeholder
 
         anchors.centerIn: parent
-        active: !Config.dashboard.performance.showCpu && !(Config.dashboard.performance.showGpu && Gpu.type !== GpuType.None) && !Config.dashboard.performance.showMemory && !Config.dashboard.performance.showStorage && !Config.dashboard.performance.showNetwork && !(UPower.displayDevice.isLaptopBattery && Config.dashboard.performance.showBattery)
+active: !Config.dashboard.performance.showCpu && !(Config.dashboard.performance.showGpu && Gpu.type !== GpuType.None) && !Config.dashboard.performance.showMemory && !Config.dashboard.performance.showStorage && !Config.dashboard.performance.showNetwork && !Config.dashboard.performance.showTopApps && !(UPower.displayDevice.isLaptopBattery && Config.dashboard.performance.showBattery)
         asynchronous: true
-
+ 
         sourceComponent: ColumnLayout {
             spacing: Tokens.spacing.medium
 
@@ -107,7 +107,7 @@ Item {
 
             RowLayout {
                 spacing: Tokens.spacing.medium
-                visible: storageCard.active || networkCard.active || memoryCard.active
+                visible: storageCard.active || networkCard.active || memoryCard.active || topAppsCard.active
 
                 WrappedLoader {
                     id: storageCard
@@ -128,6 +128,13 @@ Item {
 
                     active: Config.dashboard.performance.showMemory
                     sourceComponent: MemoryCard {}
+                }
+
+                WrappedLoader {
+                    id: topAppsCard
+
+                    active: Config.dashboard.performance.showTopApps
+                    sourceComponent: TopAppsCard {}
                 }
             }
         }
