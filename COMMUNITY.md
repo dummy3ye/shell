@@ -8,6 +8,9 @@ Maintained by: @dummy3ye
 
 ### 2026-09-10
 
+- **#1978** feat(bar): add interactive calendar popout with event management
+  - cherry-picked `84bd7ecf`
+
 - **#1919** fix(nexus): add filter to show/hide un-named bluetooth devices
   - cherry-picked `2949fe47`
 - **#1906** feat(nexus): remember externally-picked wallpapers in a recent list
