@@ -8,6 +8,13 @@ Maintained by: @dummy3ye
 
 ### 2026-09-10
 
+- **#1919** fix(nexus): add filter to show/hide un-named bluetooth devices
+  - cherry-picked `2949fe47`
+- **#1906** feat(nexus): remember externally-picked wallpapers in a recent list
+  - cherry-picked `335058b2`
+- **#1901** feat(dashboard): add top apps performance widget and settings toggle
+  - cherry-picked `4daab0c1`
+
 - **#1983** fix(nexus): contain wheel events in NavLocations to keep search bar fixed
   - cherry-picked `62fa626b`
 - **#1983** fix: use untyped wheel handler syntax in NavLocations
