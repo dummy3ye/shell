@@ -9,7 +9,24 @@ Each entry records the upstream PR and how it got in.
 
 ## Pulled PRs
 
-### 2026-09-10
+### 2026-09-10 (batch 2 - clean small fixes)
+
+- **#1983** fix(nexus): contain wheel events in NavLocations to keep search bar fixed
+  - cherry-picked `62fa626b`
+
+- **#1957** fix(dashboard): wrap long weather conditions
+  - cherry-picked `aef26376`
+
+- **#1899** fix(services): update more accurately the capslock state
+  - cherry-picked `29e50e8a`
+
+- **#1894** feat(services): integrate battery charge control threshold
+  - cherry-picked `701ecd6f` (C++ backend - requires rebuild)
+
+- **#1962** feat(launcher): add wallpaper picker shortcut
+  - cherry-picked `edb78885`
+
+### 2026-09-10 (batch 1)
 
 - **#1912** feat(dashboard): add speed test action and vector gauge to NetworkCard
   - cherry-picked `1c8e528a`
@@ -19,8 +36,6 @@ Each entry records the upstream PR and how it got in.
 
 - **#1959** fix(lock): preserve localized PAM error messages
   - cherry-picked `78aa798f`
-
-### 2026-09-10
 
 - **#1945** feat(services): add Intel iGPU utilization from fdinfo (own PR)
   - merged from `feat/services-intel-gpu-busy` via `a993e4d2`
