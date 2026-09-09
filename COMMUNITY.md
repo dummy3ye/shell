@@ -4,44 +4,40 @@ Branch: `community-release`
 Fork: `dummy3ye/shell`
 Maintained by: @dummy3ye
 
-Tracks `upstream/main` and stack fixes/features that upstream is stalled on.
-Each entry records the upstream PR and how it got in.
-
 ## Pulled PRs
 
-### 2026-09-10 (batch 2 - clean small fixes)
+### 2026-09-10
 
 - **#1983** fix(nexus): contain wheel events in NavLocations to keep search bar fixed
   - cherry-picked `62fa626b`
+- **#1983** fix: use untyped wheel handler syntax in NavLocations
+  - `3d69a07a`
+
+- **#1962** feat(launcher): add wallpaper picker shortcut
+  - cherry-picked `edb78885`
+
+- **#1959** fix(lock): preserve localized PAM error messages
+  - cherry-picked `78aa798f`
 
 - **#1957** fix(dashboard): wrap long weather conditions
   - cherry-picked `aef26376`
+
+- **#1951** fix(picker): handle missing Hypr IPC state
+  - cherry-picked `b78dc659`
+
+- **#1945** feat(services): add Intel iGPU utilization from fdinfo
+  - merged `a993e4d2`
+
+- **#1912** feat(dashboard): add speed test action and vector gauge to NetworkCard
+  - cherry-picked `1c8e528a`
 
 - **#1899** fix(services): update more accurately the capslock state
   - cherry-picked `29e50e8a`
 
 - **#1894** feat(services): integrate battery charge control threshold
-  - cherry-picked `701ecd6f` (C++ backend - requires rebuild)
-
-- **#1962** feat(launcher): add wallpaper picker shortcut
-  - cherry-picked `edb78885`
-
-### 2026-09-10 (batch 1)
-
-- **#1912** feat(dashboard): add speed test action and vector gauge to NetworkCard
-  - cherry-picked `1c8e528a`
-
-- **#1951** fix(picker): handle missing Hypr IPC state
-  - cherry-picked `b78dc659`
-
-- **#1959** fix(lock): preserve localized PAM error messages
-  - cherry-picked `78aa798f`
-
-- **#1945** feat(services): add Intel iGPU utilization from fdinfo (own PR)
-  - merged from `feat/services-intel-gpu-busy` via `a993e4d2`
+  - cherry-picked `701ecd6f`
 
 ## Rules
 
 - Always sync from `upstream/main` before stacking new picks.
-- Pick high-value community PRs that have been open/ignored upstream.
 - Log every new pull here with the cherry-picked commit.
