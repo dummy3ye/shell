@@ -386,7 +386,7 @@ void Gpu::resolveGpu() {
         return;
     }
 
-setName({});
+    setName({});
     setDetecting(true);
     const GpuType user = m_userType;
     if (user == GpuType::Intel) {
