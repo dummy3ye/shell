@@ -9,6 +9,7 @@ import Caelestia.Services
 import qs.components
 import qs.components.controls
 import qs.services
+import qs.utils
 
 StyledRect {
     id: root
@@ -311,7 +312,7 @@ StyledRect {
             StyledText {
                 text: {
                     const fmt = NetworkUsage.formatBytesRate(NetworkUsage.downloadSpeed ?? 0);
-                    return fmt ? `${fmt.value.toFixed(1)} ${fmt.unit}` : "0.0 B/s";
+                    return fmt ? Strings.withDataUnit(fmt.value.toFixed(1), fmt.unit) : Strings.withDataUnit("0.0", "B/s");
                 }
                 font: Tokens.font.body.builders.medium.weight(Font.Medium).build()
                 color: Colours.palette.m3tertiary
@@ -342,7 +343,7 @@ StyledRect {
             StyledText {
                 text: {
                     const fmt = NetworkUsage.formatBytesRate(NetworkUsage.uploadSpeed ?? 0);
-                    return fmt ? `${fmt.value.toFixed(1)} ${fmt.unit}` : "0.0 B/s";
+                    return fmt ? Strings.withDataUnit(fmt.value.toFixed(1), fmt.unit) : Strings.withDataUnit("0.0", "B/s");
                 }
                 font: Tokens.font.body.builders.medium.weight(Font.Medium).build()
                 color: Colours.palette.m3secondary
@@ -374,7 +375,10 @@ StyledRect {
                 text: {
                     const down = NetworkUsage.formatBytes(NetworkUsage.downloadTotal ?? 0);
                     const up = NetworkUsage.formatBytes(NetworkUsage.uploadTotal ?? 0);
-                    return (down && up) ? `↓${down.value.toFixed(1)}${down.unit} ↑${up.value.toFixed(1)}${up.unit}` : "↓0.0B ↑0.0B";
+                    const downText = down ? Strings.withDataUnit(down.value.toFixed(1), down.unit) : Strings.withDataUnit("0.0", "B");
+                    const upText = up ? Strings.withDataUnit(up.value.toFixed(1), up.unit) : Strings.withDataUnit("0.0", "B");
+                    // TRANSLATORS: %1 = downloaded total, %2 = uploaded total
+                    return Tr.tr("↓%1 ↑%2").arg(downText).arg(upText);
                 }
                 font: Tokens.font.body.small
                 color: Colours.palette.m3onSurfaceVariant
