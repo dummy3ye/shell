@@ -6,6 +6,15 @@ Maintained by: @dummy3ye
 
 ## Pulled PRs
 
+### 2026-09-11
+
+- **#1995** fix(services): diff network usage per interface to prevent speed spikes
+  - cherry-picked from `pr-1995`
+- **#1971** feat(nexus): add custom accent colour picker
+  - cherry-picked from `pr-1971`
+
+> #1951 and #1957 have since been merged upstream; retained via upstream sync.
+
 ### 2026-09-10
 
 - **#1978** feat(bar): add interactive calendar popout with event management
