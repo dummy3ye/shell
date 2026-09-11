@@ -50,8 +50,7 @@ Item {
             text: Weather.description
             font: Tokens.font.body.small
 
-            wrapMode: Text.WordWrap
-            maximumLineCount: 2
+            elide: Text.ElideRight
             width: Math.min(implicitWidth, root.parent.width - icon.implicitWidth - info.anchors.leftMargin - Tokens.padding.extraLargeIncreased)
         }
     }
