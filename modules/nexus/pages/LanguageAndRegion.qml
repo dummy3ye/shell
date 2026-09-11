@@ -11,13 +11,31 @@ import qs.modules.nexus.common
 PageBase {
     id: root
 
-    // Temperature units (index 0 = Celsius, 1 = Fahrenheit — matches Weather.formatTemp)
+    // Temperature units (there must be one for each value of the TemperatureUnit enum)
     readonly property list<MenuItem> tempItems: [
         MenuItem {
             text: Tr.tr("°C")
+            value: TemperatureUnit.Celsius
         },
         MenuItem {
             text: Tr.tr("°F")
+            value: TemperatureUnit.Fahrenheit
+        },
+        MenuItem {
+            text: Tr.tr("K")
+            value: TemperatureUnit.Kelvin
+        }
+    ]
+
+    // Data size units (there must be one for each value of the DataUnit enum)
+    readonly property list<MenuItem> dataItems: [
+        MenuItem {
+            text: Tr.tr("Binary (KiB, MiB)")
+            value: DataUnit.Binary
+        },
+        MenuItem {
+            text: Tr.tr("Decimal (KB, MB)")
+            value: DataUnit.Decimal
         }
     ]
 
@@ -133,17 +151,25 @@ PageBase {
             label: Tr.tr("Temperature")
             subtext: Tr.tr("Units for weather temperatures")
             menuItems: root.tempItems
-            active: root.tempItems[GlobalConfig.services.useFahrenheit ? 1 : 0]
-            onSelected: item => GlobalConfig.services.useFahrenheit = root.tempItems.indexOf(item) === 1
+            active: root.tempItems.find(i => i.value === GlobalConfig.services.weatherUnits)
+            onSelected: item => GlobalConfig.services.weatherUnits = item.value
+        }
+
+        SelectRow {
+            label: Tr.tr("System temperatures")
+            subtext: Tr.tr("Units for CPU and GPU temperatures")
+            menuItems: root.tempItems
+            active: root.tempItems.find(i => i.value === GlobalConfig.services.sensorUnits)
+            onSelected: item => GlobalConfig.services.sensorUnits = item.value
         }
 
         SelectRow {
             last: true
-            label: Tr.tr("System temperatures")
-            subtext: Tr.tr("Units for CPU and GPU temperatures")
-            menuItems: root.tempItems
-            active: root.tempItems[GlobalConfig.services.useFahrenheitPerformance ? 1 : 0]
-            onSelected: item => GlobalConfig.services.useFahrenheitPerformance = root.tempItems.indexOf(item) === 1
+            label: Tr.tr("Data sizes")
+            subtext: Tr.tr("Units for data sizes and network speeds")
+            menuItems: root.dataItems
+            active: root.dataItems.find(i => i.value === GlobalConfig.services.dataUnits)
+            onSelected: item => GlobalConfig.services.dataUnits = item.value
         }
 
         // Time & date
